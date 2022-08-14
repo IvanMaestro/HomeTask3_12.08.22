@@ -10,14 +10,20 @@ Console.WriteLine("Для проверки является ли число па
 Console.Write("Введите любое пятизначное число: ");
 int number = Convert.ToInt32(Console.ReadLine());
 
-int digit1 = number / 10000;
-int digit2 = number / 1000 % 10;
-int digit4 = number % 100 / 10;
-int digit5 = number % 10;
-
-if (number < 1000 || number > 99999) Console.WriteLine($"{number} - не пятизначное число!");
-else if (digit1 == digit5 && digit2 == digit4) Console.WriteLine("Да!");
-else
+string Find3Digit(int num)
 {
-    Console.WriteLine("Нет!");
+    int digit1 = num / 10000;
+    int digit2 = num / 1000 % 10;
+    int digit4 = num % 100 / 10;
+    int digit5 = num % 10;
+
+    if (num < 1000 || num > 99999) return $"{num} - не пятизначное число!";
+    if (digit1 == digit5 && digit2 == digit4) return "Да!";
+    else
+    {
+        return "Нет!";
+    }
 }
+
+string result = Find3Digit(number);
+Console.WriteLine(result);
